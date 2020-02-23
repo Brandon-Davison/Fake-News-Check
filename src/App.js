@@ -18,6 +18,9 @@ import TextFieldsIcon from '@material-ui/icons/TextFields';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Icon from '@material-ui/core/Icon';
 import SaveIcon from '@material-ui/icons/Save';
+import { SnackbarProvider } from 'notistack';
+import MuiAlert from '@material-ui/lab/Alert';
+
 import './App.css';
 
 const useStyles = makeStyles(theme => ({
@@ -38,19 +41,25 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 function App() {
 
   const [headline, setHeadline] = React.useState("Headline not set");
   const [url, setUrl] = React.useState("url not sent")
+  const [sendSucess, setSendSuccess] = React.useState(-1)
 
   const sendTweet = () => {
     console.log("Headline: ", headline)
-    console.log("url: ", url)
+    console.log("url: ", url) 
   }
 
   const classes = useStyles();
 
   return (
+    
     <div className={classes.root}>
       {/* AppBar component */}
       <AppBar position="static">
@@ -94,9 +103,8 @@ function App() {
           </div>
         </form>
       </div>
-
+      
       <div id="div1" className={classes.root} style = {{ marginLeft : 200 }}>
-
       </div>
 
     </div>
