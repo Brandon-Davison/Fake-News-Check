@@ -41,9 +41,11 @@ const useStyles = makeStyles(theme => ({
 function App() {
 
   const [headline, setHeadline] = React.useState("Headline not set");
+  const [url, setUrl] = React.useState("url not sent")
 
   const sendTweet = () => {
     console.log("Headline: ", headline)
+    console.log("url: ", url)
   }
 
   const classes = useStyles();
@@ -80,7 +82,7 @@ function App() {
         style = {{ width : 700, height : 150, marginLeft : 550, marginTop : 150 }}>
           <div id={classes.root}>
             <TextField id="headlline" label="headline" variant="outlined" multiline onChange={e => setHeadline(e.target.value)}/>
-            <TextField id="url" label="url" variant="outlined" multiline/>
+            <TextField id="url" label="url" variant="outlined" multiline onChange={e => setUrl(e.target.value)}/>
             <div style = {{ marginLeft : 150, width : 100 }}>
               <Button
                 variant="contained"
