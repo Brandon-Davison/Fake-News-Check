@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';import logo from './fake2.jpg';
-import {Route} from "react-router-dom";
 import './App.css';
 
 
@@ -15,10 +14,10 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(20),
+    marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1,
+    flexGrow: 0,
   },
 }));
 
@@ -28,23 +27,15 @@ function App() {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar alignItems="center" display="flex">
+        <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Fake News Checker
+          <Typography variant="h5" className={classes.title}>
+            Fake News Checker   
           </Typography>
-          <Button onClick={
-             <Route
-             path="/example"
-             component={() => {
-             global.window && (global.window.location.href = 'https://example.com');
-             return null;
-             }}
-         />
-          }>Go to Twitter Bot</Button>
-        </Toolbar>
+          <Typography variant="h4">.     @FakeNewsCheck2</Typography>
+          </Toolbar>
       </AppBar>
     </div>
   );
