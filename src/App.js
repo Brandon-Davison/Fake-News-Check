@@ -16,6 +16,8 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import TextFieldsIcon from '@material-ui/icons/TextFields';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import Icon from '@material-ui/core/Icon';
+import SaveIcon from '@material-ui/icons/Save';
 import './App.css';
 
 const useStyles = makeStyles(theme => ({
@@ -37,6 +39,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function App() {
+
+  const [headline, setHeadline] = React.useState("Headline not set");
+
+  const sendTweet = () => {
+    console.log("Headline: ", headline)
+  }
+
   const classes = useStyles();
 
   return (
@@ -70,14 +79,16 @@ function App() {
         className={classes.root} noValidate autoComplete="off" 
         style = {{ width : 700, height : 150, marginLeft : 550, marginTop : 150 }}>
           <div id={classes.root}>
-            <TextField id="headlline" label="headline" variant="outlined" multiline/>
+            <TextField id="headlline" label="headline" variant="outlined" multiline onChange={e => setHeadline(e.target.value)}/>
             <TextField id="url" label="url" variant="outlined" multiline/>
-            <div style = {{ marginLeft : 150 }}>
-            <Button size="medium">
-              Click me
-            </Button>
+            <div style = {{ marginLeft : 150, width : 100 }}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={sendTweet}>
+                  Send
+              </Button>
             </div>
-    
           </div>
         </form>
       </div>
