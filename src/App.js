@@ -5,11 +5,17 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';import logo from './fake2.jpg';
+import MenuIcon from '@material-ui/icons/Menu';
+import logo from './fake2.jpg';
+import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+
 import './App.css';
 
 
 const useStyles = makeStyles(theme => ({
+  TwitterTimelineEmbed: {
+    marginLeft: 50
+  },
   root: {
     flexGrow: 1,
   },
@@ -37,6 +43,15 @@ function App() {
           <Typography variant="h4">.     @FakeNewsCheck2</Typography>
           </Toolbar>
       </AppBar>
+      <div style={{ display: "flex" }}>
+      <TwitterTimelineEmbed 
+        style={{ marginLeft: "auto" }}
+        sourceType="profile"
+        screenName="FakeNewsCheck2"
+        width="125"
+        />
+      </div>
+
     </div>
   );
 }
