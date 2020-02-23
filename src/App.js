@@ -22,9 +22,6 @@ const useStyles = makeStyles(theme => ({
    div1: {
     float: "left"
   },
-  div2: {
-    float: "left"
-  },
   TwitterTimelineEmbed: {
     marginLeft: 50
   },
@@ -68,40 +65,25 @@ function App() {
       </div>
 
       {/* Form inputs */}
-      <div id="div2">
-      <FormControl className={classes.margin}>
-        <InputLabel htmlFor="input-with-icon-adornment">With a start adornment</InputLabel>
-        <Input
-          id="input-with-icon-adornment"
-          startAdornment={
-            <InputAdornment position="start">
-              <TextFieldsIcon/>
-            </InputAdornment>
-          }
-        />
-      </FormControl>
-      <TextField
-        className={classes.margin}
-        id="input-with-icon-textfield"
-        label="TextField"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <TextFieldsIcon/>
-            </InputAdornment>
-          ),
-        }}
-      />
-      <div className={classes.margin}>
-        <Grid container spacing={1} alignItems="flex-end">
-          <Grid item>
-            <TextFieldsIcon/>
-          </Grid>
-          <Grid item>
-            <TextField id="input-with-icon-grid" label="With a grid" />
-          </Grid>
-        </Grid>
+      <div id="div1">
+        <form 
+        className={classes.root} noValidate autoComplete="off" 
+        style = {{ width : 700, height : 150, marginLeft : 550, marginTop : 150 }}>
+          <div id={classes.root}>
+            <TextField id="headlline" label="headline" variant="outlined" multiline/>
+            <TextField id="url" label="url" variant="outlined" multiline/>
+            <div style = {{ marginLeft : 150 }}>
+            <Button size="medium">
+              Click me
+            </Button>
+            </div>
+    
+          </div>
+        </form>
       </div>
+
+      <div id="div1" className={classes.root} style = {{ marginLeft : 200 }}>
+
       </div>
 
     </div>
